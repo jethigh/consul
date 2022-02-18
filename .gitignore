@@ -1,2 +1,4 @@
-data/*
 *swp
+data/consul-server-1/
+data/consul-client-1/
+data/consul-client-2/
