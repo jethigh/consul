@@ -2,3 +2,8 @@
 data/consul-server-1/
 data/consul-client-1/
 data/consul-client-2/
+
+# exception to the rule
+!data/consul-server-1/.gitkeep 
+!data/consul-client-1/.gitkeep
+!data/consul-client-2/.gitkeep
