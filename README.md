@@ -14,7 +14,7 @@ Clone this project, enter consul directory and execute:
 
 # Description
 
-`config/<container_name>` directory are mounted at `/consul/config` in Consul container and can contain custom config files. 
+`config/<container_name>` directory are mounted at `/consul/config` in Consul container and can contain custom config files.   
 `data/<container_name>` directory are mounted at `/consul/data/` in container and containd cluster data
 
 You can add additional nodes in docker-compose.yml file.
