@@ -2,3 +2,4 @@
 data/**/raft
 data/**/node-id
 data/**/serf
+data/**/checkpoint-signature
