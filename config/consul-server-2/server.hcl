@@ -7,3 +7,4 @@ log_level  = "INFO"
 client_addr = "0.0.0.0"
 bind_addr = "{{ GetInterfaceIP \"eth*\" }}"
 retry_join = ["consul-server-1", "consul-server-2", "consul-server-3"]
+encrypt = "lamcga6Pndh0YjyZSaGfhnVQVVWuyuo3s1yULoa5O8c="
