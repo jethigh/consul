@@ -8,7 +8,23 @@ services:
     volumes:
       - ./data/consul-server-1/:/consul/data:rw
       - ./config/consul-server-1/:/consul/config:rw
-    command: ['agent', '-server', '-ui', '-node=consul-server-1', '-bootstrap-expect=1', '-client=0.0.0.0']
+    command: ['agent', '-node=consul-server-1']
+
+  consul-server-2:
+    image: consul:latest
+    container_name: consul-server-2
+    volumes:
+      - ./data/consul-server-2/:/consul/data:rw
+      - ./config/consul-server-2/:/consul/config:rw
+    command: ['agent', '-node=consul-server-2']
+
+  consul-server-3:
+    image: consul:latest
+    container_name: consul-server-3
+    volumes:
+      - ./data/consul-server-3/:/consul/data:rw
+      - ./config/consul-server-3/:/consul/config:rw
+    command: ['agent', '-node=consul-server-3']
 
   consul-client-1:
     image: consul:latest
@@ -16,9 +32,11 @@ services:
     volumes:
       - ./data/consul-client-1/:/consul/data:rw
       - ./config/consul-client-1/:/consul/config:rw
-    command: ['agent', '-node=consul-client-1', '-join=consul-server-1']
+    command: ['agent', '-node=consul-client-1']
     depends_on:
       - "consul-server-1"
+      - "consul-server-2"
+      - "consul-server-3"
 
   consul-client-2:
     image: consul:latest
@@ -26,7 +44,21 @@ services:
     volumes:
       - ./data/consul-client-2/:/consul/data:rw
       - ./config/consul-client-2/:/consul/config:rw
-    command: ['agent', '-node=consul-client-2', '-join=consul-server-1']
+    command: ['agent', '-node=consul-client-2']
     depends_on:
       - "consul-server-1"
+      - "consul-server-2"
+      - "consul-server-3"
+
+  consul-client-3:
+    image: consul:latest
+    container_name: consul-client-3
+    volumes:
+      - ./data/consul-client-3/:/consul/data:rw
+      - ./config/consul-client-3/:/consul/config:rw
+    command: ['agent', '-node=consul-client-3']
+    depends_on:
+      - "consul-server-1"
+      - "consul-server-2"
+      - "consul-server-3"
 
