@@ -19,3 +19,10 @@ Clone this project, enter consul directory and execute:
 `data/<container_name>` directory are mounted at `/consul/data/` in container and contain cluster data
 
 You can add additional nodes in docker-compose.yml file.
+
+# Commands
+
+`consul members` - list Consul cluster members  
+`consul tls ca create` - generate CA certificate  
+`consul tls cert create -server -days=730` - generate server key and certificate
+
